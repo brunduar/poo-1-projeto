@@ -29,19 +29,19 @@ public class ProgramaRU {
                 switch (opcao) {
 
                     case 1:
-                        String nomeUsuario = JOptionPane.showInputDialog(null, "Digite o nome do usu�rio",
-                                "Cadastrando usu�rio", JOptionPane.QUESTION_MESSAGE);
-                        String matriculaUsuario = JOptionPane.showInputDialog(null, "Digite a matr�cula do usu�rio",
-                                "Cadastrando usu�rio", JOptionPane.QUESTION_MESSAGE);
+                        String nomeUsuario = JOptionPane.showInputDialog(null, "Digite o nome do usuário",
+                                "Cadastrando usuário", JOptionPane.QUESTION_MESSAGE);
+                        String matriculaUsuario = JOptionPane.showInputDialog(null, "Digite a matrícula do usuário",
+                                "Cadastrando usuário", JOptionPane.QUESTION_MESSAGE);
                         String cidadeUsuario = JOptionPane.showInputDialog(null,
-                                "Digite a cidade de resid�ncia do usuário", "Cadastrando usu�rio",
+                                "Digite a cidade de residência do usuário", "Cadastrando usuário",
                                 JOptionPane.QUESTION_MESSAGE);
                         Usuario usuario = new Usuario(nomeUsuario, matriculaUsuario, cidadeUsuario);
                         boolean cadastrou = sistema.cadastrarUsuario(usuario);
                         if (cadastrou) {
-                            JOptionPane.showMessageDialog(null, "Usu�rio cadastrado com sucesso");
+                            JOptionPane.showMessageDialog(null, "Usuário cadastrado com sucesso");
                         } else {
-                            JOptionPane.showMessageDialog(null, "J� existe usu�rio com esta matr�cula. Tente novamente.");
+                            JOptionPane.showMessageDialog(null, "Já existe usuário com esta matrícula. Tente novamente.");
                         }
                         break;
 
@@ -52,16 +52,16 @@ public class ProgramaRU {
                             lista += u.toString() + "\n";
                         }
                         if (lista.equals("")) {
-                            JOptionPane.showMessageDialog(null, "N�o existe nenhum usu�rio cadastrado.");
+                            JOptionPane.showMessageDialog(null, "Não existe nenhum usuário cadastrado.");
                         } else {
-                            JOptionPane.showMessageDialog(null, lista, "Lista de todos os usu�rios",
+                            JOptionPane.showMessageDialog(null, lista, "Lista de todos os usuários",
                                     JOptionPane.INFORMATION_MESSAGE);
                         }
                         break;
 
                     case 3:
                         String cidadeAPesquisar = JOptionPane.showInputDialog(null,
-                                "Digite a cidade que voc� quer pesquisar", "Pesquisando usu�rios pela cidade",
+                                "Digite a cidade que você quer pesquisar", "Pesquisando usuários pela cidade",
                                 JOptionPane.QUESTION_MESSAGE);
                         String moradoresDeTalCidade = "";
                         List<Usuario> usuariosDaCidadeTal = sistema.pesquisaUsuariosDaCidade(cidadeAPesquisar);
@@ -69,17 +69,17 @@ public class ProgramaRU {
                             moradoresDeTalCidade += u.toString() + "\n";
                         }
                         if (moradoresDeTalCidade == "") {
-                            JOptionPane.showMessageDialog(null, "N�o foi encontrado ningu�m que reside nesta cidade.");
+                            JOptionPane.showMessageDialog(null, "Não foi encontrado ninguém que reside nesta cidade.");
                         } else {
                             JOptionPane.showMessageDialog(null, moradoresDeTalCidade,
-                                    "Usu�rios da cidade de '" + cidadeAPesquisar + "'", JOptionPane.INFORMATION_MESSAGE);
+                                    "Usuários da cidade de '" + cidadeAPesquisar + "'", JOptionPane.INFORMATION_MESSAGE);
                         }
                         break;
 
                     case 4:
                         try {
                             String matriculaAPesquisar = JOptionPane.showInputDialog(null,
-                                    "Digite a matr�cula que voc� quer pesquisar", "Pesquisando usu�rio pela matr�cula",
+                                    "Digite a matrícula que você quer pesquisar", "Pesquisando usuário pela matrícula",
                                     JOptionPane.QUESTION_MESSAGE);
                             Usuario usuarioDeTalMatricula = sistema.pesquisaUsuarioPelaMatricula(matriculaAPesquisar);
                             JOptionPane.showMessageDialog(null, usuarioDeTalMatricula.toString(), "Usu�rio",
@@ -91,7 +91,7 @@ public class ProgramaRU {
 
                     case 5:
                         String prefixoAPesquisar = JOptionPane.showInputDialog(null,
-                                "Digite o prefixo que voc� quer pesquisar", "Pesquisando usu�rios por prefixo",
+                                "Digite o prefixo que você quer pesquisar", "Pesquisando usuários por prefixo",
                                 JOptionPane.QUESTION_MESSAGE);
                         String usuariosDeNomeComecandoCom = "";
                         List<Usuario> usuariosComNomeComecandoComTalPrefixo = sistema
@@ -100,39 +100,39 @@ public class ProgramaRU {
                             usuariosDeNomeComecandoCom += u.getNome() + "\n";
                         }
                         if (usuariosDeNomeComecandoCom == "") {
-                            JOptionPane.showMessageDialog(null, "N�o foi encontrado ningu�m que tenha este prefixo.", null,
+                            JOptionPane.showMessageDialog(null, "Não foi encontrado ninguém que tenha este prefixo.", null,
                                     JOptionPane.INFORMATION_MESSAGE);
                         } else {
                             JOptionPane.showMessageDialog(null, usuariosDeNomeComecandoCom,
-                                    "Usu�rios come�ando com '" + prefixoAPesquisar + "'", JOptionPane.INFORMATION_MESSAGE);
+                                    "Usuários começando com '" + prefixoAPesquisar + "'", JOptionPane.INFORMATION_MESSAGE);
                         }
                         break;
 
                     case 6:
                         try {
                             String matriculaDoCadastroDaRefeicao = JOptionPane.showInputDialog(null,
-                                    "Digite a matr�cula para cadastrar a refei��o", "Cadastrando refei��o",
+                                    "Digite a matrícula para cadastrar a refeição", "Cadastrando refeição",
                                     JOptionPane.QUESTION_MESSAGE);
                             String[] dataDaRefeicao = JOptionPane.showInputDialog(null,
-                                    "Digite a data em que a refei��o foi realizada no formato dd/mm/aaaa",
-                                    "Cadastrando refei��o", JOptionPane.QUESTION_MESSAGE).split("/");
+                                    "Digite a data em que a refeição foi realizada no formato dd/mm/aaaa",
+                                    "Cadastrando refeição", JOptionPane.QUESTION_MESSAGE).split("/");
                             int diaRefeicao = Integer.parseInt(dataDaRefeicao[0]);
                             int mesRefeicao = Integer.parseInt(dataDaRefeicao[1]);
                             int anoRefeicao = Integer.parseInt(dataDaRefeicao[2]);
                             String tipoRefeicao = JOptionPane.showInputDialog(null, "Digite o tipo da refei��o",
-                                    "Cadastrando refei��o", JOptionPane.QUESTION_MESSAGE);
+                                    "Cadastrando refeição", JOptionPane.QUESTION_MESSAGE);
                             sistema.cadastrarRefeicaoRealizada(matriculaDoCadastroDaRefeicao, diaRefeicao, mesRefeicao,
                                     anoRefeicao, tipoRefeicao);
-                            JOptionPane.showMessageDialog(null, "Refei��o cadastrada com sucesso!");
+                            JOptionPane.showMessageDialog(null, "Refeição cadastrada com sucesso!");
                         } catch (UsuarioNaoExisteException e) {
-                            JOptionPane.showMessageDialog(null, "N�o foi encontrado nenhum usu�rio com esta matr�cula");
+                            JOptionPane.showMessageDialog(null, "Não foi encontrado nenhum usuário com esta matrícula");
                         }
                         break;
 
                     case 7:
                         String[] dataRefeicoesDoDiaTal = JOptionPane.showInputDialog(null,
                                         "Digite a data no formato dd/mm/aaaa",
-                                        "Pesquisando n�mero de refei��es realizadas em um certo dia", JOptionPane.QUESTION_MESSAGE)
+                                        "Pesquisando número de refeições realizadas em um certo dia", JOptionPane.QUESTION_MESSAGE)
                                 .split("/");
                         int diaRefeicaoTal = Integer.parseInt(dataRefeicoesDoDiaTal[0]);
                         int mesRefeicaoTal = Integer.parseInt(dataRefeicoesDoDiaTal[1]);
@@ -140,47 +140,47 @@ public class ProgramaRU {
                         int numeroTotalRefeicoes = sistema.pesquisaNumeroTotalDeRefeicoesRealizadadasEmUmCertoDia(
                                 diaRefeicaoTal, mesRefeicaoTal, anoRefeicaoTal);
                         JOptionPane.showMessageDialog(null,
-                                "Foram realizadas " + numeroTotalRefeicoes + " refei��es neste dia");
+                                "Foram realizadas " + numeroTotalRefeicoes + " refeições neste dia");
                         break;
 
                     case 8:
-                        String tipoRefeicaoAPesquisar = JOptionPane.showInputDialog(null, "Digite o tipo de refei��o",
-                                "Pesquisando n�mero de refei��es de um certo tipo realizadas em um certo m�s",
+                        String tipoRefeicaoAPesquisar = JOptionPane.showInputDialog(null, "Digite o tipo de refeição",
+                                "Pesquisando número de refeições de um certo tipo realizadas em um certo mês",
                                 JOptionPane.QUESTION_MESSAGE);
-                        int mesAPesquisar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o m�s a pesquisar",
-                                "Pesquisando n�mero de refei��es de um certo tipo realizadas em um certo m�s",
+                        int mesAPesquisar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o mês a pesquisar",
+                                "Pesquisando número de refeições de um certo tipo realizadas em um certo mês",
                                 JOptionPane.QUESTION_MESSAGE));
                         int anoAPesquisar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o ano a pesquisar",
-                                "Pesquisando n�mero de refei��es de um certo tipo realizadas em um certo m�s",
+                                "Pesquisando número de refeições de um certo tipo realizadas em um certo ano",
                                 JOptionPane.QUESTION_MESSAGE));
                         int numeroTotalRefeicoesDeUmCertoTipo = sistema
                                 .pesquisaNumeroDeRefeicoesDeUmCertoTipoRealizadasEmUmCertoMes(tipoRefeicaoAPesquisar,
                                         mesAPesquisar, anoAPesquisar);
                         JOptionPane.showMessageDialog(null,
-                                "Foram realizadas" + numeroTotalRefeicoesDeUmCertoTipo + " refei��es neste dia");
+                                "Foram realizadas" + numeroTotalRefeicoesDeUmCertoTipo + " refeições neste dia");
                         break;
 
                     case 9:
-                        int pesquisaMes = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o m�s a pesquisar",
-                                "Pesquisando n�mero de usu�rios que realizaram refei��es em um certo m�s",
+                        int pesquisaMes = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o mês a pesquisar",
+                                "Pesquisando número de usuários que realizaram refeições em um certo mês",
                                 JOptionPane.QUESTION_MESSAGE));
-                        int pesquisaAno = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o tipo de refei��o",
-                                "Pesquisando n�mero de usu�rios que realizaram refei��es em um certo m�s",
+                        int pesquisaAno = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o tipo de refeição",
+                                "Pesquisando número de usuários que realizaram refeições em um certo mês",
                                 JOptionPane.QUESTION_MESSAGE));
                         int numeroTotalDeUsuarios = sistema
                                 .pesquisaNumeroDeUsuariosQueFizeramRefeicoesEmUmCertoMesDeUmAno(pesquisaMes, pesquisaAno);
-                        JOptionPane.showMessageDialog(null, numeroTotalDeUsuarios + " fizeram refei��es neste m�s");
+                        JOptionPane.showMessageDialog(null, numeroTotalDeUsuarios + " fizeram refeições neste mês");
                         break;
 
                     case 10:
                         int diaPesquisar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o dia a pesquisar",
-                                "Pesquisando usu�rios que fizeram refei��es em um certo dia",
+                                "Pesquisando usuários que fizeram refeições em um certo dia",
                                 JOptionPane.QUESTION_MESSAGE));
-                        int mesPesquisar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite m�s a pesquisar",
-                                "Pesquisando usu�rios que fizeram refei��es em um certo dia",
+                        int mesPesquisar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o mês a pesquisar",
+                                "Pesquisando usuários que fizeram refeições em um certo mês",
                                 JOptionPane.QUESTION_MESSAGE));
                         int anoPesquisar = Integer.parseInt(JOptionPane.showInputDialog(null, "Digite o ano a pesquisar",
-                                "Pesquisando usu�rios que fizeram refei��es em um certo dia",
+                                "Pesquisando usuários que fizeram refeições em um certo ano",
                                 JOptionPane.QUESTION_MESSAGE));
                         String nomeEMatriculaDosUsuarios = "";
                         List<Usuario> usuariosQueFizeramRefeicoes = sistema
@@ -197,21 +197,21 @@ public class ProgramaRU {
                         break;
 
                     case 12:
-                        int querSair = JOptionPane.showConfirmDialog(null, "Voc� realmente deseja sair do programa?",
-                                "Selecione uma op��o", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
+                        int querSair = JOptionPane.showConfirmDialog(null, "Você realmente deseja sair do programa?",
+                                "Selecione uma opção", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE);
                         if (querSair == JOptionPane.YES_OPTION) {
-                            JOptionPane.showMessageDialog(null, "Obrigado! At� breve!");
+                            JOptionPane.showMessageDialog(null, "Obrigado! Até breve!");
                             sair = true;
                         }
                         sistema.salvarDados();
                         break;
 
                     default:
-                        JOptionPane.showMessageDialog(null, "Digite uma op��o v�lida!");
+                        JOptionPane.showMessageDialog(null, "Digite uma opção válida!");
                 }
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Voc� deve digitar um n�mero relacionado � fun��o desejada.");
+                JOptionPane.showMessageDialog(null, "Você deve digitar um número relacionado à função desejada.");
             }
         }
     }
