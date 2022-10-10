@@ -119,7 +119,7 @@ public class ProgramaRU {
                             int diaRefeicao = Integer.parseInt(dataDaRefeicao[0]);
                             int mesRefeicao = Integer.parseInt(dataDaRefeicao[1]);
                             int anoRefeicao = Integer.parseInt(dataDaRefeicao[2]);
-                            String tipoRefeicao = JOptionPane.showInputDialog(null, "Digite o tipo da refei��o",
+                            String tipoRefeicao = JOptionPane.showInputDialog(null, "Digite o tipo da refeição",
                                     "Cadastrando refeição", JOptionPane.QUESTION_MESSAGE);
                             sistema.cadastrarRefeicaoRealizada(matriculaDoCadastroDaRefeicao, diaRefeicao, mesRefeicao,
                                     anoRefeicao, tipoRefeicao);
