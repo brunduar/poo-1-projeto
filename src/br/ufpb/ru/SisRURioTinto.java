@@ -25,6 +25,16 @@ public class SisRURioTinto implements SisRU {
         return true;
     }
 
+    public boolean removerUsuario(String matricula) throws UsuarioNaoExisteException{
+        for(Usuario u: this.usuarios){
+            if(u.getMatricula().equals(matricula)){
+                usuarios.remove(u);
+                return true;
+            }
+        }
+        throw new UsuarioNaoExisteException("Não existe usuário com esta matrícula.");
+    }
+
     public List<Usuario> getUsuarios() {
         return this.usuarios;
     }

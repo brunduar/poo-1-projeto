@@ -6,6 +6,8 @@ public interface SisRU {
 
     public boolean cadastrarUsuario(Usuario u);
 
+    public boolean removerUsuario(String matricula) throws UsuarioNaoExisteException;
+
     public List<Usuario> getUsuarios();
 
     public List<Usuario> pesquisaUsuariosDaCidade(String cidade);

@@ -24,7 +24,7 @@ public class ProgramaRU {
                         + "8. Pesquisar número de refeições de um certo tipo realizadas em um certo mês de um ano\n"
                         + "9. Pesquisar número de usuários que fizeram refeições em um certo mês\n"
                         + "10. Pesquisar usuários que fizeram refeições em um certo dia\n"
-                        + "11. Salvar dados\n12. Sair", "Menu", JOptionPane.QUESTION_MESSAGE));
+                        + "11. Remover usuário\n12. Sair", "Menu", JOptionPane.QUESTION_MESSAGE));
 
                 switch (opcao) {
 
@@ -82,7 +82,7 @@ public class ProgramaRU {
                                     "Digite a matrícula que você quer pesquisar", "Pesquisando usuário pela matrícula",
                                     JOptionPane.QUESTION_MESSAGE);
                             Usuario usuarioDeTalMatricula = sistema.pesquisaUsuarioPelaMatricula(matriculaAPesquisar);
-                            JOptionPane.showMessageDialog(null, usuarioDeTalMatricula.toString(), "Usu�rio",
+                            JOptionPane.showMessageDialog(null, usuarioDeTalMatricula.toString(), "Usuário",
                                     JOptionPane.INFORMATION_MESSAGE);
                         } catch (UsuarioNaoExisteException erro) {
                             JOptionPane.showMessageDialog(null, erro.getMessage());
@@ -192,8 +192,14 @@ public class ProgramaRU {
                         break;
 
                     case 11:
-                        sistema.salvarDados();
-                        JOptionPane.showMessageDialog(null, "Dados salvos com sucesso!");
+                        try{
+                            String matriculaRemocao = JOptionPane.showInputDialog(null, "Digite a matrícula do usuário a ser removido",
+                                    "Removendo usuário", JOptionPane.QUESTION_MESSAGE);
+                            sistema.removerUsuario(matriculaRemocao);
+                            JOptionPane.showMessageDialog(null, "Usuário removido com sucesso!");
+                        } catch (UsuarioNaoExisteException a){
+                            JOptionPane.showMessageDialog(null, a.getMessage());
+                        }
                         break;
 
                     case 12:
